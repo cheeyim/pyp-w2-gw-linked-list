@@ -8,9 +8,9 @@ class Node(object):
         self.next = next
 
     def __str__(self):
-        return "Node({}) > {}".format(self.elem, 
-                                     (("Node({})").format(self.next.elem) 
-                                if self.next else "/"))
+        if self.next:
+            return "Node({}) > Node({})".format(self.elem, self.next.elem)
+        return "Node({}) > /".format(self.elem)
 
     def __eq__(self, other):
         return self.elem == other.elem
